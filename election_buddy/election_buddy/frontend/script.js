@@ -1,5 +1,5 @@
 // Configuration
-const API_URL = "http://localhost:8000"; 
+const API_URL = "http://localhost:8080"; // Change this to your Cloud Run URL after deployment
 
 // State management
 let chatHistory = [];
