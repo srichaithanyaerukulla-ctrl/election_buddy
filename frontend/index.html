@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Election Buddy - Smart AI Assistant for India</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">ELECTION BUDDY 🇮🇳</div>
+            <div class="header-info">
+                <span>Phase: <b>General Elections 2024</b></span>
+            </div>
+        </header>
+
+        <main>
+            <div class="sidebar">
+                <div class="card">
+                    <h3><i class="fas fa-bolt"></i> Quick Actions</h3>
+                    <div class="quick-actions">
+                        <button class="action-btn" onclick="suggestQuery('How to Vote')">
+                            <i class="fas fa-person-booth"></i>
+                            How to Vote
+                        </button>
+                        <button class="action-btn" onclick="toggleSection('timeline')">
+                            <i class="fas fa-calendar-alt"></i>
+                            Timeline
+                        </button>
+                        <button class="action-btn" onclick="toggleSection('checklist')">
+                            <i class="fas fa-list-check"></i>
+                            Checklist
+                        </button>
+                        <button class="action-btn" onclick="suggestQuery('Am I eligible to vote?')">
+                            <i class="fas fa-user-check"></i>
+                            Eligibility
+                        </button>
+                        <button class="action-btn" onclick="suggestQuery('What are my rights as a voter?')">
+                            <i class="fas fa-shield-halved"></i>
+                            Voter Rights
+                        </button>
+                        <button class="action-btn" onclick="toggleSection('crowd')">
+                            <i class="fas fa-users-viewfinder"></i>
+                            Live Crowd
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card" id="dynamic-section">
+                    <div id="timeline-view">
+                        <h3>Election Timeline</h3>
+                        <div class="timeline-item">
+                            <strong>Registration Deadline</strong>
+                            <p>Ensure you are in the voter list by April 10.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <strong>Phase 1 Voting</strong>
+                            <p>April 19 - Various states.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <strong>Result Day</strong>
+                            <p>June 4 - Nationwide counting.</p>
+                        </div>
+                    </div>
+
+                    <div id="checklist-view" style="display:none;">
+                        <h3>Voter Checklist</h3>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="check1">
+                            <label for="check1">Check name in Voter List</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="check2">
+                            <label for="check2">Check Polling Station</label>
+                        </div>
+                        <div class="checklist-item">
+                            <input type="checkbox" id="check3">
+                            <label for="check3">ID Proof (Voter ID/Aadhar)</label>
+                        </div>
+                    </div>
+
+                    <div id="crowd-view" style="display:none;">
+                        <h3>Booth Status</h3>
+                        <div id="booth-list">
+                            <p>Loading booth data...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Contact & Support</h3>
+                    <p><i class="fas fa-phone"></i> Helpline: 1950</p>
+                    <p><i class="fas fa-envelope"></i> eci@eci.gov.in</p>
+                </div>
+            </div>
+
+            <div class="chat-container">
+                <div class="chat-messages" id="chat-messages">
+                    <div class="message bot-message">
+                        Namaste! I am your <b>Election Buddy</b>. How can I help you vote safely and confidently today?
+                    </div>
+                </div>
+                <div id="typing-indicator" class="typing" style="display:none; padding-left: 1.5rem;">Buddy is thinking...</div>
+                <div class="chat-input-area">
+                    <input type="text" id="user-input" placeholder="Ask me about voting, booths, or your rights..." onkeypress="handleKeyPress(event)">
+                    <button class="send-btn" onclick="sendMessage()">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <div class="floating-help" onclick="suggestQuery('Emergency: I need help at the booth')">
+            <i class="fas fa-triangle-exclamation"></i>
+            🚨 Election Day Help
+        </div>
+    </div>
+
+    <script src="/frontend/script.js"></script>
+</body>
+</html>
