@@ -7,7 +7,7 @@ from vertexai.generative_models import GenerativeModel, Part
 from google.cloud import firestore
 from fastapi.middleware.cors import CORSMiddleware
 from flask import Flask, send_from_directory
-import os
+
 
 app = Flask(__name__, static_folder='frontend')
 
